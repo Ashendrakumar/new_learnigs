@@ -1,27 +1,94 @@
-@tailwind base;
-@tailwind components;
+/* @tailwind base; */
+/* @tailwind components; */
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  background-size: 300% 300%;
+}
+.card {
+  perspective: 1000px;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+}
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+}
+
+.btn {
+  @apply py-2 px-4 rounded-bl-xl rounded-tr-xl hover:scale-x-105  transition-all duration-500 ease-in-out transform hover:drop-shadow-xl;
+}
+
+.btn-lg {
+  @apply py-3 px-6 rounded-bl-2xl rounded-tr-2xl hover:scale-x-105 transition-all duration-500 ease-in-out transform hover:drop-shadow-2xl;
+}
+
+.teal-btn {
+  @apply bg-teal-600 hover:bg-teal-700 text-white shadow-teal-200;
+}
+
+.amber-btn {
+  @apply bg-amber-600 hover:bg-amber-700 text-white shadow-amber-200;
+}
+
+.green-btn {
+  @apply bg-green-500 hover:bg-green-600 text-white shadow-green-200;
+}
+
+.red-btn {
+  @apply bg-red-500 hover:bg-red-600 text-white shadow-red-200;
+}
+
+.image-slider-container {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.image-slider-container .slick-prev:before,
+.image-slider-container .slick-next:before {
+  color: black;
 }

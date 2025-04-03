@@ -1,20 +1,69 @@
-import type { Config } from 'tailwindcss'
-
-const config: Config = {
+module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+    colors: {
+      primary: {
+        100: "#d6e9f8",
+        200: "#aed3f1",
+        300: "#85bcea",
+        400: "#5da6e3",
+        500: "#3490dc",
+        600: "#2a73b0",
+        700: "#1f5684",
+        800: "#153a58",
+        900: "#0a1d2c",
+      },
+      secondary: {
+        100: "#fffbdb",
+        200: "#fff8b7",
+        300: "#fff492",
+        400: "#fff16e",
+        500: "#ffed4a",
+        600: "#ccbe3b",
+        700: "#998e2c",
+        800: "#665f1e",
+        900: "#332f0f",
+      },
+      red: {
+        100: "#f9d6d5",
+        200: "#f4aeac",
+        300: "#ee8582",
+        400: "#e95d59",
+        500: "#e3342f",
+        600: "#b62a26",
+        700: "#881f1c",
+        800: "#5b1513",
+        900: "#2d0a09",
+      },
+      green: {
+        100: "#d5f9d6",
+        200: "#acefac",
+        300: "#82ee85",
+        400: "#59e95d",
+        500: "#30e334",
+        600: "#26b62a",
+        700: "#1c881f",
+        800: "#135b15",
+        900: "#092d0a",
+      },
+      gray: {
+        100: "#f9f9f9",
+        200: "#f2f2f2",
+        300: "#e6e6e6",
+        400: "#bfbfbf",
+        500: "#999999",
+        600: "#737373",
+        700: "#4d4d4d",
+        800: "#262626",
+        900: "#0d0d0d",
       },
     },
+
+    extend: {},
   },
   plugins: [],
-}
-export default config
+};
