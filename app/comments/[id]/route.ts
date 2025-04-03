@@ -2,20 +2,24 @@ import { redirect } from "next/navigation";
 import { comments } from "../data";
 
 // context: Context
-export async function GET(
-  _request: Request,
-  { params }: { params: { id: string } }
-) {
-  const commentId = Number(params.id);
-  const comment = comments.find((comment) => comment.id === commentId);
-  if (comment) {
-    return new Response(JSON.stringify(comment), { status: 200 });
-  } else {
-    redirect("/comments");
-    // redirect("/not-found");
-    return new Response("Comment not found", { status: 404 });
-  }
-}
+// export async function GET(
+//   _request: Request,
+//   { params }: { params: { id: string } }
+// ) {
+//   const para = await params;
+//   if (!para || !para.id) {
+//     return new Response("Invalid request", { status: 400 });
+//   }
+
+//   const commentId = Number(params.id);
+//   const comment = comments.find((comment) => comment.id === commentId);
+
+//   if (!comment) {
+//     return new Response("Comment not found", { status: 404 });
+//   }
+
+//   return new Response(JSON.stringify(comment), { status: 200 });
+// }
 
 export async function PATCH(
   request: Request,
